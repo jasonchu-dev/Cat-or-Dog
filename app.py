@@ -21,8 +21,8 @@ def predict():
     file.save(path)
 
     img = cv.imread(path)
-    img = cv.resize(img, (225, 225))
-    img = img.reshape(1, 225, 225, 3)
+    img = cv.resize(img, (200, 200))
+    img = img.reshape(1, 200, 200, 3)
     img = img/255
     nodes = model.predict(img)
     # nodes is np.array within array and cannot flatten so it must be [0][0] and [0][1] not [0] and [1]
@@ -30,13 +30,11 @@ def predict():
     percent, result = None, None
 
     if a == 0: 
-        result = 'Dog'
-        # percent = nodes[0][1] * 100
-        percent = nodes
-    else: 
         result = 'Cat'
-        # percent = nodes[0][0] * 100
-        percent = nodes
+        percent = nodes[0][1] * 100
+    else: 
+        result = 'Dog'
+        percent = nodes[0][0] * 100
 
     return render_template('index.html', result=result, percent=percent, file=file)
 
