@@ -4,10 +4,11 @@ Made simple deep learning model that checks whether there's a cat or dog in imag
 
 Dataset: https://www.microsoft.com/en-us/download/details.aspx?id=54765
 
-## Modules used:
+## Modules & tools:
 * OpenCV
 * OS
 * TensorFlow
 * random
 * NumPy
 * Keras
+* Flask
